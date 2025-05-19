@@ -35,6 +35,14 @@ return (
 </>
 )
 ```
+🛠Accessing the Toolbar
+
+- Windows: Ctrl + Arrow Down
+
+- Mac: Cmd + Arrow Down
+
+
+
 ## 📦 AI Response
 to generate AI response
 configure GEMINI API KEY

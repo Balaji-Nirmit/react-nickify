@@ -1,8 +1,6 @@
 
 # 📦 React-nickify
 
-> A brief one-liner description of what your package does.
-
 ![npm](https://img.shields.io/npm/v/react-nickify.svg) ![License](https://img.shields.io/npm/l/react-nickify.svg)   ![Downloads](https://img.shields.io/npm/dt/react-nickify.svg)
 
 ---

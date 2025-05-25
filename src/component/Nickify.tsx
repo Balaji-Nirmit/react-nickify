@@ -172,15 +172,37 @@ const Nickify = ({ initialContent = '', isAiEnabled = false, setContent }: TextE
         editorProps: {
             handleKeyDown(view, event) {
                 const isCtrlOrCmd = event.metaKey || event.ctrlKey;
+
                 if (event.key === "ArrowDown" && isCtrlOrCmd) {
-                    setShow(!show);
+                    view.dom.dataset.forceShow = "true"; // set custom flag on editor DOM
+                    setShow(true);
                     return true;
-                } 
-                else {
-                    setShow(false);
                 }
-                return false; // this makes tiptap handle other keys
+
+                return false;
             },
+            handleDOMEvents:{
+                mouseup:(view,event)=>{
+                    if(view.dom.dataset.forceShow==="true"){
+                        view.dom.dataset.forceShow='false';
+                        return false;
+                    }
+                    const isTextSelected = !view.state.selection.empty;
+                    setShow(isTextSelected);
+                    return false;
+                },
+                keyup(view,event) {
+                    // Prevent flicker caused by keyup after Cmd+ArrowDown
+                    if (view.dom.dataset.forceShow === "true") {
+                        view.dom.dataset.forceShow = "false";
+                        return false;
+                    }
+
+                    const isTextSelected = !view.state.selection.empty;
+                    setShow(isTextSelected);
+                    return false;
+                },
+            }
         },
     });
 

@@ -39,6 +39,8 @@ return (
 
 - Mac: Cmd + Arrow Down
 
+- On text selection also
+
 
 
 ## 📦 AI Response

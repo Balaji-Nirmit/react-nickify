@@ -36,6 +36,6 @@ export default [
         input: "src/index.ts",
         output: [{ file: packageJson.types }],
         plugins: [dts.default()],
-        external: [/\.css$/],
+        external: [/\.css$/,"@google/genai/web"],
     },
 ]

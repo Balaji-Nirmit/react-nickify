@@ -45,7 +45,7 @@ import {
     HighlighterIcon,
     XCircle,
 } from "lucide-react";
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI } from "@google/genai/web";
 
 
 type ToolbarButtonProps = {

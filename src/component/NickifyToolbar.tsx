@@ -47,9 +47,6 @@ import {
 } from "lucide-react";
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY; // for Vite
-const ai = new GoogleGenAI({ apiKey: apiKey });
-
 
 type ToolbarButtonProps = {
     onClick: () => void;
@@ -296,6 +293,8 @@ const NickifyToolbar: React.FC<NickifyToolbarProps> = ({ editor, isAiEnabled }) 
             }
             setLoader(true)
             setFetching(true)
+            const apiKey = import.meta.env.VITE_GEMINI_API_KEY; // for Vite
+            const ai = new GoogleGenAI({ apiKey: apiKey });
             const response = await ai.models.generateContent({
                 model: "gemini-2.0-flash",
                 contents: `${question}.Give answer in formatted html code when needed`,

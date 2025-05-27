@@ -50,7 +50,7 @@ return (
 ## 📦 AI Response
 to generate AI response
 configure GEMINI API KEY
-make a 
+make a .env.local file and add 
 ```bash
 VITE_GEMINI_API_KEY="your api key"
 ```

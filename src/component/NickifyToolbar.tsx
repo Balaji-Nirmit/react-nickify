@@ -45,10 +45,7 @@ import {
     HighlighterIcon,
     XCircle,
 } from "lucide-react";
-import { GoogleGenAI } from "@google/genai";
-
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY; // for Vite
-const ai = new GoogleGenAI({ apiKey: apiKey });
+import { GoogleGenAI } from "@google/genai/web";
 
 
 type ToolbarButtonProps = {
@@ -296,6 +293,8 @@ const NickifyToolbar: React.FC<NickifyToolbarProps> = ({ editor, isAiEnabled }) 
             }
             setLoader(true)
             setFetching(true)
+            const apiKey = import.meta.env.VITE_GEMINI_API_KEY; // for Vite
+            const ai = new GoogleGenAI({ apiKey: apiKey });
             const response = await ai.models.generateContent({
                 model: "gemini-2.0-flash",
                 contents: `${question}.Give answer in formatted html code when needed`,
@@ -414,7 +413,10 @@ const NickifyToolbar: React.FC<NickifyToolbarProps> = ({ editor, isAiEnabled }) 
         reader.onload = () => {
             const base64 = reader.result;
             if (typeof base64 === "string") {
-                editor.chain().focus().setImage({ src: base64 }).run();
+                const sanitizedBase64 = base64.replace(/[^\w+/=:;,-]/g, '');
+                if (sanitizedBase64.startsWith('data:image/') && sanitizedBase64.includes('base64,')) {
+                    editor.chain().focus().setImage({ src: sanitizedBase64 }).run();
+                }
             }
         };
         reader.readAsDataURL(file);

@@ -1,8 +1,6 @@
 
 # 📦 React-nickify
 
-> A brief one-liner description of what your package does.
-
 ![npm](https://img.shields.io/npm/v/react-nickify.svg) ![License](https://img.shields.io/npm/l/react-nickify.svg)   ![Downloads](https://img.shields.io/npm/dt/react-nickify.svg)
 
 ---
@@ -41,12 +39,18 @@ return (
 
 - Mac: Cmd + Arrow Down
 
+<img width="1470" alt="image" src="https://github.com/user-attachments/assets/64cdbf4f-71fa-4b68-b0ba-9c6aded74f3c" />
+
+- On text selection also
+
+<img width="1470" alt="image" src="https://github.com/user-attachments/assets/c96e7cd5-b6ec-42b6-a173-843d589b6323" />
+
 
 
 ## 📦 AI Response
 to generate AI response
 configure GEMINI API KEY
-make a 
+make a .env.local file and add 
 ```bash
 VITE_GEMINI_API_KEY="your api key"
 ```

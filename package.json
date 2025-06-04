@@ -51,6 +51,7 @@
     "@tiptap/starter-kit": "^2.12.0",
     "@tiptap/suggestion": "^2.12.0",
     "@types/react": "^19.1.4",
+    "dompurify": "^3.2.6",
     "lowlight": "^3.3.0",
     "lucide-react": "^0.511.0",
     "rollup": "^4.41.0",

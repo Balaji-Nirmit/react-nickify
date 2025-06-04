@@ -413,7 +413,10 @@ const NickifyToolbar: React.FC<NickifyToolbarProps> = ({ editor, isAiEnabled }) 
         reader.onload = () => {
             const base64 = reader.result;
             if (typeof base64 === "string") {
-                editor.chain().focus().setImage({ src: base64 }).run();
+                const sanitizedBase64 = base64.replace(/[^\w+/=:;,-]/g, '');
+                if (sanitizedBase64.startsWith('data:image/') && sanitizedBase64.includes('base64,')) {
+                    editor.chain().focus().setImage({ src: sanitizedBase64 }).run();
+                }
             }
         };
         reader.readAsDataURL(file);

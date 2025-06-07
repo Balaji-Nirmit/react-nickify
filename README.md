@@ -65,7 +65,7 @@ and then
 
 
 <!-- Copy-paste in your Readme.md file -->
-# Contributors
+## Contributors
 <a href="https://github.com/Balaji-Nirmit/react-nickify/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Balaji-Nirmit/react-nickify" />
 </a>
